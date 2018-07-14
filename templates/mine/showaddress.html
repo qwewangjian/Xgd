@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}mine{% endblock title %}
+
+{% block link %}
+<link type="text/css" rel="stylesheet" href="{% static 'mine/css/showaddress.css' %}">
+{% endblock link %}
+{% block script %}
+<script type="text/javascript" src="{% static 'mine/js/showaddress.js' %}"></script>
+{% endblock script %}
+
+{% block main %}
+    <div id="#myaddr">
+        <section class="fixed">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span >我的地址</span>
+{#            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>#}
+        </section>
+    </div>
+    <div>
+    <ul>
+        {% for item in addrList %}
+            <li>
+                <h6>用户名:{{ item.name }}</h6>
+                <h6>联系方式:{{item.phoneNum }}</h6>
+                <h6>详细地址:{{ item.address }}</h6>
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+      <div id="#dr">
+        <section class="dow">
+            <span ><a href="/addaddr/">添加地址</a></span>
+{#            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>#}
+        </section>
+      </div>
+
+{% endblock main %}
